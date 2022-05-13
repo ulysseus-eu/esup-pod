@@ -1,6 +1,13 @@
 # esup-pod
-
-
+## Build docker images
+```bash
+docker build -t ulysseus/esup-pod .
+docker build -t ulysseus/elasticsearch -f Dockerfile.elasticsearch .
+```
+## Launch
+```bash
+docker-compose up -d
+```
 
 ## Getting started
 

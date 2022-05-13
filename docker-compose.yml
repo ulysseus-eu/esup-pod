@@ -1,0 +1,42 @@
+version: "3.9"
+   
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx-pod.conf:/etc/nginx/sites-enabled/pod.conf
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./static:/var/www/pod/static
+      - ./media:/var/www/pod/media
+      - ./uwsgi_params:/var/www/pod/uwsgi_params
+  web:
+    image: ulysseus/esup-pod
+    container_name: esup-pod
+    # command: python manage.py runserver 0.0.0.0:8000
+    command: uwsgi --ini pod/custom/pod_uwsgi.ini --enable-threads --uid pod --gid www-data
+    volumes:
+      - ./settings_local.py:/home/pod/Esup-Pod/pod/custom/settings_local.py
+      - ./static:/home/pod/Esup-Pod/pod/static
+      - ./media:/home/pod/Esup-Pod/pod/media
+    ports:
+      - 8000
+  elasticsearch:
+    container_name: elasticsearch
+    image: ulysseus/elasticsearch
+    command: /usr/share/elasticsearch/bin/elasticsearch
+    environment:
+    - JAVA_HOME=/opt/jdk-15.0.1+9
+    - node.name=pod
+    - discovery.type=single-node
+    - http.host=0.0.0.0
+    - transport.host=0.0.0.0
+    volumes:
+      - ./elasticsearch:/var/lib/elasticsearch
+      - ./elasticsearch.yml:/etc/elasticsearch/elasticsearch.yml
+    ports:
+    - 9200:9200
+    - 9300:9300
