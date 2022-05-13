@@ -3,7 +3,7 @@ Description=Pod uWSGI app
 After=syslog.target
 
 [Service]
-ExecStart=/usr/local/bin/uwsgi --ini /usr/local/django_projects/podv2/pod/custom/pod_uwsgi.ini \
+ExecStart=/usr/local/bin/uwsgi --ini /home/pod/Esup-Pod/pod/custom/pod_uwsgi.ini \
         --enable-threads \
         --pidfile /tmp/pod.pid
 ExecStop=/usr/local/bin/uwsgi --stop /tmp/pod.pid
