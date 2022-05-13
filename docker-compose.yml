@@ -2,7 +2,7 @@ version: "3.9"
    
 services:
   nginx:
-    image: nginx
+    image: ulysseus/nginx
     container_name: nginx
     ports:
       - 80:80
@@ -17,13 +17,14 @@ services:
     image: ulysseus/esup-pod
     container_name: esup-pod
     # command: python manage.py runserver 0.0.0.0:8000
-    command: uwsgi --ini pod/custom/pod_uwsgi.ini --enable-threads --uid pod --gid www-data
+    #command: uwsgi --ini pod/custom/pod_uwsgi.ini --enable-threads --uid pod --gid www-data
+    command: uwsgi --socket :8000 --wsgi-file pod/wsgi.py --enable-threads --master --processes 4 --threads 2
     volumes:
       - ./settings_local.py:/home/pod/Esup-Pod/pod/custom/settings_local.py
       - ./static:/home/pod/Esup-Pod/pod/static
       - ./media:/home/pod/Esup-Pod/pod/media
     ports:
-      - 8000
+      - 8000:8000
   elasticsearch:
     container_name: elasticsearch
     image: ulysseus/elasticsearch
