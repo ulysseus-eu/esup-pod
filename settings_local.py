@@ -34,14 +34,14 @@ SECRET_KEY = 'A_CHANGER'
 # Ne déployez jamais de site en production avec le réglage DEBUG activé.
 # https://docs.djangoproject.com/fr/1.11/ref/settings/#debug
 """
-DEBUG = False
+DEBUG = True
 
 """
 Pour forcer le https
 """
 SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 """
 # Une liste de chaînes représentant des noms de domaine/d’hôte
@@ -141,7 +141,7 @@ FILE_UPLOAD_TEMP_DIR = "/var/tmp"
 #  les fichiers statiques en vue du déploiement.
 # https://docs.djangoproject.com/fr/1.11/ref/settings/#std:setting-STATIC_ROOT
 """
-STATIC_ROOT = "/home/pod/Esup-Pod/static"
+STATIC_ROOT = "/home/pod/Esup-Pod/pod/static"
 
 """
 # Indique à django de compresser automatiquement
@@ -157,7 +157,7 @@ STATICFILES_STORAGE = 'static_compress.CompressedStaticFilesStorage'
 #  qui contiendra les fichiers téléversés par les utilisateurs.
 # https://docs.djangoproject.com/fr/1.11/ref/settings/#std:setting-MEDIA_ROOT
 """
-MEDIA_ROOT = "/pod/media"
+MEDIA_ROOT = "/home/pod/Esup-Pod/pod/media"
 
 """
 # nom du serveur smtp
@@ -402,11 +402,11 @@ TEMPLATE_VISIBLE_SETTINGS = {
 
     # Logo affiché en haut à gauche sur toutes les pages.
     # Doit se situer dans le répertoire static
-    'LOGO_SITE': 'img/logoPod.svg',
+    'LOGO_SITE': 'img/favicon.png',
 
     # Logo affiché dans le footer sur toutes les pages.
     # Doit se situer dans le répertoire static
-    'LOGO_ETB': 'img/logo_etb.svg',
+    'LOGO_ETB': 'img/ulysseus-logo-negative.png',
 
     # Logo affiché sur le player video.
     # Doit se situer dans le répertoire static
@@ -424,7 +424,7 @@ TEMPLATE_VISIBLE_SETTINGS = {
     'FOOTER_TEXT': ('',),
 
     # Icone affichée dans la barre d'adresse du navigateur
-    'FAVICON': 'img/logoPod.svg',
+    'FAVICON': 'img/favicon.png',
 
     # Si souhaitée, à créer et sauvegarder
     #  dans le répertoire static de l'application custom et

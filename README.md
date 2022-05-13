@@ -3,10 +3,15 @@
 ```bash
 docker build -t ulysseus/esup-pod .
 docker build -t ulysseus/elasticsearch -f Dockerfile.elasticsearch .
+docker build -t ulysseus/nginx -f Dockerfile.nginx .
 ```
 ## Launch
 ```bash
 docker-compose up -d
+docker exec -it esup-pod /bin/bash
+python manage.py collectstatic
+python manage.py create_pod_index
+python manage.py createsuperuser
 ```
 
 ## Getting started
