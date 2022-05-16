@@ -22,8 +22,7 @@ WORKDIR /home/pod/Esup-Pod
 RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-COPY ./create_db.sh /home/pod/Esup-Pod/
-RUN ./create_db.sh
+RUN sh create_data_base.sh
 
 RUN pip3 install uwsgi
 COPY ./pod_uwsgi.ini /home/pod/Esup-Pod/pod/custom/
