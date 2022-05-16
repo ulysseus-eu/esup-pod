@@ -14,23 +14,27 @@ services:
       - ./static:/var/www/pod/static
       - ./media:/var/www/pod/media
       - ./uwsgi_params:/var/www/pod/uwsgi_params
+      - ./socket:/var/www/pod/socket
     depends_on:
       - esup-pod
+
   esup-pod:
     image: ulysseus/esup-pod
     container_name: pod
     restart: always
     # command: python manage.py runserver 0.0.0.0:8000
-    #command: uwsgi --ini pod/custom/pod_uwsgi.ini --enable-threads --uid pod --gid www-data
-    command: uwsgi --socket :8000 --wsgi-file pod/wsgi.py --enable-threads --master --processes 5 --threads 10
+    command: uwsgi --ini pod/custom/pod_uwsgi.ini
+    # command: uwsgi --socket :8000 --wsgi-file pod/wsgi.py --enable-threads --master --processes 5 --threads 10
     volumes:
       - ./settings_local.py:/home/pod/Esup-Pod/pod/custom/settings_local.py
       - ./static:/home/pod/Esup-Pod/pod/static
       - ./media:/home/pod/Esup-Pod/pod/media
+      - ./socket:/home/pod/Esup-Pod/pod/socket
     depends_on:
       - elasticsearch
     ports:
       - 8000
+
   elasticsearch:
     container_name: elasticsearch
     image: ulysseus/elasticsearch
