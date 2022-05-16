@@ -1,11 +1,6 @@
-FROM debian:buster-slim
+FROM nginx
 
-RUN DEBIAN_FRONTEND=noninteractive && \
-    apt update && \
-    apt dist-upgrade -y && \
-    apt install -y nginx-extras ca-certificates gettext-base curl && \
-    rm -rf /var/cache/apt && rm -rf /var/lib/apt
+RUN apt update && \
+    apt install -y nginx-extras ca-certificates curl  nano && \
+    rm -rf /var/lib/apt/lists/*
 
-EXPOSE 80
-VOLUME /var/www/html
-CMD nginx -g 'daemon off;'
