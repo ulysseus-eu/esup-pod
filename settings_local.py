@@ -34,7 +34,7 @@ SECRET_KEY = 'A_CHANGER'
 # Ne déployez jamais de site en production avec le réglage DEBUG activé.
 # https://docs.djangoproject.com/fr/1.11/ref/settings/#debug
 """
-DEBUG = True
+DEBUG = False
 
 """
 Pour forcer le https
