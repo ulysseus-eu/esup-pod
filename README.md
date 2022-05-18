@@ -42,6 +42,6 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 ## Credit
-Another docker-compose that helped me on the way: https://plmlab.math.cnrs.fr/docker-images/esup-pod
+Another docker-compose that helped me on the way: https://plmlab.math.cnrs.fr/docker-images/esup-pod  
 The official installation guide for v2: https://www.esup-portail.org/wiki/display/ES/installation
 
