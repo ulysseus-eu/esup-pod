@@ -1,4 +1,8 @@
 # esup-pod
+## Purpose
+We created this composition because we needed a simple way to host esup-pod.  
+We found an existing composition (see credits) that was separating the website and the encoding (need for MySQL database and more complex composition) and that was serving the front-end without using uwsgi and not serving the static files with Nginx.  
+You can use this composition in production if you don't have critical needs in term of video encoding.
 ## Build docker images
 ```bash
 docker build -t ulysseus/esup-pod .
@@ -36,3 +40,8 @@ In case you add https support, think about updating settings_local.py.
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+## Credit
+Another docker-compose that helped me on the way: https://plmlab.math.cnrs.fr/docker-images/esup-pod
+The official installation guide for v2: https://www.esup-portail.org/wiki/display/ES/installation
+
