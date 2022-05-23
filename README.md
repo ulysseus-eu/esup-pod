@@ -36,12 +36,16 @@ Set DEBUG to False in settings_local.py
 ```bash
 sed -i 's/DEBUG = True/DEBUG = False/' settings_local.py
 ```
-## To do
-Support https as we're using a proxy path in our case.
-In case you add https support, think about updating settings_local.py.
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+
+## Activate SSL
+You need to have at your disposal a certificate and its private key.  
+Update docker-compose.yaml to mount your certificates for nginx container to use them.  
+Update nginx-pod.conf to listen to port 443, identify the location of your certificate & key and activate redirect from http to https.  
+In case you're at the root of your domain, think about adding www redirect.  
+Updating settings_local.py:  
+SECURE_SSL_REDIRECT = True  
+SESSION_COOKIE_SECURE = True  
+CSRF_COOKIE_SECURE = True  
 
 ## Credit
 Another docker-compose that helped me on the way: https://plmlab.math.cnrs.fr/docker-images/esup-pod  
