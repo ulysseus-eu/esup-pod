@@ -402,11 +402,11 @@ TEMPLATE_VISIBLE_SETTINGS = {
 
     # Logo affiché en haut à gauche sur toutes les pages.
     # Doit se situer dans le répertoire static
-    'LOGO_SITE': 'img/favicon.png',
+    'LOGO_SITE': 'img/logo.png',
 
     # Logo affiché dans le footer sur toutes les pages.
     # Doit se situer dans le répertoire static
-    'LOGO_ETB': 'img/ulysseus-logo-negative.png',
+    'LOGO_ETB': 'img/brand-logo.png',
 
     # Logo affiché sur le player video.
     # Doit se situer dans le répertoire static
@@ -424,7 +424,7 @@ TEMPLATE_VISIBLE_SETTINGS = {
     'FOOTER_TEXT': ('',),
 
     # Icone affichée dans la barre d'adresse du navigateur
-    'FAVICON': 'img/favicon.png',
+    'FAVICON': 'img/favicon.ico',
 
     # Si souhaitée, à créer et sauvegarder
     #  dans le répertoire static de l'application custom et
