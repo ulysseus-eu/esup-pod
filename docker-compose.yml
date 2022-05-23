@@ -54,6 +54,6 @@ services:
     volumes:
       - ./elasticsearch:/var/lib/elasticsearch
       - ./elasticsearch.yml:/etc/elasticsearch/elasticsearch.yml
-    ports:
-    - "9200:9200"
-    - "9300:9300"
+    expose:
+    - "9200"
+    - "9300"
