@@ -15,6 +15,7 @@ services:
       - ./media:/var/www/pod/media
       - ./uwsgi_params:/var/www/pod/uwsgi_params
       - ./socket:/var/www/pod/socket
+      - /etc/certifs:/etc/ssl
     depends_on:
       - esup-pod
 

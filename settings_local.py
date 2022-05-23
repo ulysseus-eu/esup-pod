@@ -51,7 +51,7 @@ CSRF_COOKIE_SECURE = False
 #  de serveur Web apparemment sécurisées.
 #  https://docs.djangoproject.com/fr/1.11/ref/settings/#allowed-hosts
 """
-ALLOWED_HOSTS = ['localhost','pod.ulysseus.eu']
+ALLOWED_HOSTS = ['localhost','videos.ulysseus.eu']
 
 """
 # L’âge des cookies de sessions, en secondes.
