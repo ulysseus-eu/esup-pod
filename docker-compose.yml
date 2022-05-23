@@ -34,6 +34,7 @@ services:
       - ./static:/home/pod/Esup-Pod/pod/static
       - ./media:/home/pod/Esup-Pod/pod/media
       - ./socket:/home/pod/Esup-Pod/pod/socket
+      - ./database:/home/pod/Esup-Pod/pod/database
     depends_on:
       - elasticsearch
     expose:
